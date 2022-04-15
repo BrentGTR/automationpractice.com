@@ -36,7 +36,6 @@
 <h3 align="center">Test Automation - automationpractice.com</h3>
 
   <p align="center">
-    project_description
     <br />
     <a href="https://github.com/BrentGTR/automationpractice.com"><strong>Explore the docs »</strong></a>
     <br />
