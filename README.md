@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://media-exp1.licdn.com/dms/image/C4E12AQHebe3ks-J8KA/article-cover_image-shrink_720_1280/0/1623922583225?e=2147483647&v=beta&t=wO8cplSxGqN48TU1z6RquQKQq_u3QZeMsJ90RsJFYhI">
+  <a href="https://cynoteck.com/wp-content/uploads/2019/07/what-is-selenium-cover-768x384.jpg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
