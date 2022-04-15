@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PBA Primary Client Test Suite" parallel="classes" thread-count="1">
+    <parameter name="environment" value="dev"/>
+    <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="extentreportlistener.ExtentReporterNG" />
+    </listeners>
+    <test name="Search Feature">
+        <classes>
+            <class name="DefaultRunner"/>
+        </classes>
+    </test>
+</suite>
