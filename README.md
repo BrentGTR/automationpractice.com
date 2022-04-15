@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://cynoteck.com/wp-content/uploads/2019/07/what-is-selenium-cover-768x384.jpg">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+<!--     <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
 <h3 align="center">Test Automation - automationpractice.com</h3>
