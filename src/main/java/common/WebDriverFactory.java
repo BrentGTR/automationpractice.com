@@ -3,12 +3,22 @@ package common;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v99.emulation.Emulation;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Properties;
 
 public class WebDriverFactory {
@@ -29,16 +39,29 @@ public class WebDriverFactory {
         }
 
         String browserName = properties.getProperty("browser");
+        Map<String, String> mobileEmulation = new HashMap<>();
+        ChromeOptions chromeOptions = new ChromeOptions();
 
-        if("chrome".equalsIgnoreCase(browserName)){
-            WebDriverManager.chromedriver().setup();
-            driver.set(new ChromeDriver());
-        } else if("firefox".equalsIgnoreCase(browserName)){
-            WebDriverManager.firefoxdriver().setup();
-            driver.set(new FirefoxDriver());
-        } else{
-            System.out.println("Cannot start "+properties.getProperty("browser")+" browser.");
-        }
+        switch ((browserName.toLowerCase())){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver.set(new ChromeDriver());
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver.set(new FirefoxDriver());
+                break;
+            case "ie":
+                WebDriverManager.iedriver().setup();
+                driver.set(new InternetExplorerDriver());
+                break;
+            case "safari":
+                WebDriverManager.safaridriver().setup();
+                driver.set(new SafariDriver());
+                break;
+            default:
+                System.out.println("Cannot start "+properties.getProperty("browser")+" browser.");
+            }
 
         getDriver().manage().window().maximize();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
