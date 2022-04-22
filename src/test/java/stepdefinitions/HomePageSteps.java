@@ -12,7 +12,6 @@ public class HomePageSteps {
     @Given("Customer is on the home page")
     public void customerIsOnTheHomePage() {
         homePage.goToHomePage();
-        homePage.assertHomeSlider();
     }
 
     @When("Customer searches for {string}")
