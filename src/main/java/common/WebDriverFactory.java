@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.FileInputStream;
@@ -46,24 +47,32 @@ public class WebDriverFactory {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 driver.set(new ChromeDriver());
+                getDriver().manage().window().maximize();
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 driver.set(new FirefoxDriver());
+                getDriver().manage().window().maximize();
                 break;
             case "ie":
                 WebDriverManager.iedriver().setup();
                 driver.set(new InternetExplorerDriver());
+                getDriver().manage().window().maximize();
                 break;
             case "safari":
                 WebDriverManager.safaridriver().setup();
                 driver.set(new SafariDriver());
+                getDriver().manage().window().maximize();
+                break;
+            case "iphone 11":
+                WebDriverManager.chromedriver().setup();
+                chromeOptions.addArguments("--window-size=375,812");
+                driver.set(new ChromeDriver(chromeOptions));
                 break;
             default:
                 System.out.println("Cannot start "+properties.getProperty("browser")+" browser.");
             }
 
-        getDriver().manage().window().maximize();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         return getDriver();
