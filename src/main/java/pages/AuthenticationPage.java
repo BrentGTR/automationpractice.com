@@ -6,10 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import pages.basepage.BasePage;
 
 import java.util.Locale;
 
-public class AuthenticationPage extends BasePage{
+public class AuthenticationPage extends BasePage {
     WebDriver driver;
     Faker faker = new Faker(new Locale("en-ZA"));
 
