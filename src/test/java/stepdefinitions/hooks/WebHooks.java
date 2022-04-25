@@ -8,6 +8,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,7 @@ import java.io.IOException;
 
 public class WebHooks {
     private static WebDriver driver;
+    static Logger logger = LoggerFactory.getLogger(WebHooks.class);
 
     @Before(order = 0)
     public void cleanUp(Scenario scenario){
@@ -22,6 +25,7 @@ public class WebHooks {
         if(directory.exists()){
             try {
                 FileUtils.cleanDirectory(new File("./Screenshots/" + scenario.getName()));
+                logger.info("Screenshot folder cleaned");
             } catch (IOException e) {
                 e.printStackTrace();
             }
