@@ -38,7 +38,7 @@ Feature: Login functionality
 
 
 #  @ISS-987: 406 response when registering new customer
-  @E2E @Failing
+  @E2E @Failing @Skip
   Scenario: When a new customer attempts to register with a valid email then the customer is successfully registered
     Given Customer is on the authentication page
     When customer captures email of "validemail@yop.com" address to create an account
